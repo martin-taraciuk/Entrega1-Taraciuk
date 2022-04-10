@@ -6,16 +6,16 @@
 
 {% block 'body_block' %}
 
+
     <p>
-        <a href={% url 'surfistas' %}>volver</a>
+        <a href={% url 'surfistas' %}>Volver</a>
     </p>
+
     <form action="" method="post">
         {% csrf_token %}
         <table>
             {{form.as_table}}
         </table>
-        {% comment %} <input type="submit" value="Crear"> {% endcomment %}
-        <button>Crear</button>
-    </form>
+        <button>Editar</button>
 
 {% endblock 'body_block' %}

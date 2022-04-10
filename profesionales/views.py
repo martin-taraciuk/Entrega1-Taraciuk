@@ -2,9 +2,13 @@ from django.shortcuts import redirect, render
 
 from .models import Surfista, Futbolista, Tenista
 from .forms import SurfistaFormulario, SurfistaBusqueda, FutbolistaFormulario, TenistaFormulario
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-# Create your views here.
-
+@login_required
 def crear_surfista(request):
     
     if request.method == 'POST':
@@ -32,6 +36,20 @@ def lista_surfistas(request):
         
     form = SurfistaBusqueda()
     return render(request, "profesionales/lista_surfistas.html", {'form': form, 'surfistas': surfistas})
+
+class DetalleSurfista(DetailView):
+    model = Surfista
+    template_name = "profesionales/detalle_surfista.html"
+
+    
+class EditarSurfista(LoginRequiredMixin, UpdateView):
+    model = Surfista
+    success_url = '/profesionales/surfistas/'
+    fields = ['nombre', 'apellido', 'pais']
+    
+class BorrarSurfista(LoginRequiredMixin, DeleteView):    
+    model = Surfista
+    success_url = '/profesionales/surfistas/'
 
 def crear_futbolista(request):
     
@@ -64,3 +82,4 @@ def crear_tenista(request):
     
     form = TenistaFormulario()
     return render(request, "profesionales/crear_tenista.html", {'form': form})
+
