@@ -1,11 +1,8 @@
 from django.urls import path
-from .views import index, mi_login, registrarse
-from django.contrib.auth.views import LogoutView
+from .views import index
+
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('login/', mi_login, name='login'),
-    path('registrarse/', registrarse, name='registrarse'),
-    path('logout/', LogoutView.as_view(template_name='index/logout.html'), name='logout')
+    path('', index, name='index')
     # path('plantilla/', plantilla, name='plantilla'),
 ]
