@@ -16,7 +16,7 @@ def crear_surfista(request):
         
         if form.is_valid():
             data = form.cleaned_data
-            surfista = Surfista(nombre=data['nombre'], apellido=data['apellido'], pais=data['pais'])
+            surfista = Surfista(nombre=data['nombre'], apellido=data['apellido'], pais=data['pais'], tarjeta_presentacion=data['tarjeta_presentacion'])
             surfista.save()
             # return render(request, "index/plantilla.html", {})
             # return redirect('plantilla')
