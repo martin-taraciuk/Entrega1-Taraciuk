@@ -57,8 +57,8 @@ def editar_usuario(request):
         if form.is_valid():
             
             request.user.email = form.cleaned_data['email']
-            request.user.email = form.cleaned_data['first_name']
-            request.user.email = form.cleaned_data['last_name']
+            request.user.first_name = form.cleaned_data['first_name']
+            request.user.last_name = form.cleaned_data['last_name']
             request.user.email = form.cleaned_data['email']
             user_extension_logued.avatar = form.cleaned_data['avatar']
             user_extension_logued.link = form.cleaned_data['link']

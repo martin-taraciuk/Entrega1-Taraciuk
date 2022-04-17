@@ -9,15 +9,16 @@ class SurfistaFormulario(forms.Form):
     pais = forms.CharField(max_length=30)
     tarjeta_presentacion = RichTextFormField(required=False)
     
-class FutbolistaFormulario(forms.Form):
-    nombre = forms.CharField(max_length=20)
-    apellido = forms.CharField(max_length=30)
-    club_futbol = forms.CharField(max_length=50)
-    
-class TenistaFormulario(forms.Form):
-    nombre = forms.CharField(max_length=20)
-    apellido = forms.CharField(max_length=30)
-    club_tenis = forms.CharField(max_length=50)
     
 class SurfistaBusqueda(forms.Form):
     nombre = forms.CharField(max_length=20)
+    
+# class FutbolistaFormulario(forms.Form):
+#     nombre = forms.CharField(max_length=20)
+#     apellido = forms.CharField(max_length=30)
+#     club_futbol = forms.CharField(max_length=50)
+    
+# class TenistaFormulario(forms.Form):
+#     nombre = forms.CharField(max_length=20)
+#     apellido = forms.CharField(max_length=30)
+#     club_tenis = forms.CharField(max_length=50)

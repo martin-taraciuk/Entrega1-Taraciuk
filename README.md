@@ -1,10 +1,12 @@
 Entrar en la pagina
-Click en la solapa de "Crear Futbolista"
-Rellenamos el formulario de futbolista
-Click en la solapa de "Crear Tenista"
-Rellenamos el formulario de tenista
-Click en la solapa de "Crear Surfista"
+Click en acerca de mi
+Si no tengo usuario click en "Registrar"
+Si tengo usuario click en "login" y ponemos usuario y clave
+Click en la solapa de "Surfista"
+Podemos editar o borrar algunos items de la lista
 Rellenamos el formulario surfista
-Click en la solapa "Buscar Surfista"
+Podemos buscar el surfista que querramos
 Probamos la busqueda del surfista
 Click en la solapa "Index"
+
+Martin Taraciuk, hice el proyecto solo
