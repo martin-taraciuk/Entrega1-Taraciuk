@@ -12,14 +12,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 def crear_surfista(request):
     
     if request.method == 'POST':
-        form = SurfistaFormulario(request.POST)
+        form = SurfistaFormulario(request.POST, request.FILES)
         
         if form.is_valid():
             data = form.cleaned_data
-            surfista = Surfista(nombre=data['nombre'], apellido=data['apellido'], pais=data['pais'], tarjeta_presentacion=data['tarjeta_presentacion'])
+            surfista = Surfista(nombre=data['nombre'], apellido=data['apellido'], pais=data['pais'], tarjeta_presentacion=data['tarjeta_presentacion'], foto=data['foto'])
             surfista.save()
-            # return render(request, "index/plantilla.html", {})
-            # return redirect('plantilla')
             return redirect('index')
     
     form = SurfistaFormulario()
@@ -45,37 +43,11 @@ class DetalleSurfista(DetailView):
 class EditarSurfista(LoginRequiredMixin, UpdateView):
     model = Surfista
     success_url = '/profesionales/surfistas/'
-    fields = ['nombre', 'apellido', 'pais']
+    fields = ['nombre', 'apellido', 'pais', 'tarjeta_presentacion', 'foto']
     
 class BorrarSurfista(LoginRequiredMixin, DeleteView):    
     model = Surfista
     success_url = '/profesionales/surfistas/'
 
-# def crear_futbolista(request):
-    
-#     if request.method == 'POST':
-#         form = FutbolistaFormulario(request.POST)
-        
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             futbolista = Futbolista(nombre=data['nombre'], apellido=data['apellido'], club_futbol=data['club_futbol'])
-#             futbolista.save()
-#             return redirect('index')
-    
-#     form = FutbolistaFormulario()
-#     return render(request, "profesionales/crear_futbolista.html", {'form': form})
 
-# def crear_tenista(request):
-    
-#     if request.method == 'POST':
-#         form = TenistaFormulario(request.POST)
-        
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             tenista = Tenista(nombre=data['nombre'], apellido=data['apellido'], club_tenis=data['club_tenis'])
-#             tenista.save()
-#             return redirect('index')
-    
-#     form = TenistaFormulario()
-#     return render(request, "profesionales/crear_tenista.html", {'form': form})
 
